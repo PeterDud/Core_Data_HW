@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
+    <entity name="PDCourse" representedClassName="PDCourse" syncable="YES">
+        <attribute name="field" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lecturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PDStudent" inverseName="teachCourses" inverseEntity="PDStudent" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PDStudent" inverseName="courses" inverseEntity="PDStudent" syncable="YES"/>
+    </entity>
+    <entity name="PDStudent" representedClassName="PDStudent" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PDCourse" inverseName="students" inverseEntity="PDCourse" syncable="YES"/>
+        <relationship name="teachCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PDCourse" inverseName="lecturer" inverseEntity="PDCourse" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PDStudent" positionX="-9" positionY="-190" width="128" height="118"/>
+        <element name="PDCourse" positionX="-315" positionY="-154" width="128" height="118"/>
+    </elements>
+</model>
